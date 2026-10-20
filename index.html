@@ -440,6 +440,26 @@
     }
     .info-box i { color: var(--violet); }
 
+    /* Paragraphe explicatif paiement */
+    .explication-paiement {
+      background: #FFF8E1;
+      border-left: 4px solid var(--jaune-orange);
+      border-radius: 14px;
+      padding: 1rem 1.3rem;
+      margin: 1.2rem 0 1rem;
+      font-size: 0.92rem;
+      color: var(--gris-moyen);
+      line-height: 1.7;
+    }
+    .explication-paiement i {
+      color: var(--jaune-orange);
+      font-size: 1.1rem;
+      margin-right: 6px;
+    }
+    .explication-paiement strong {
+      color: var(--violet-profond);
+    }
+
     /* Boutons nav */
     .btn-nav, .btn-primary {
       font-family: "Inter", sans-serif;
@@ -958,25 +978,94 @@
             <div class="info-securite-sociale">
               <i class="fas fa-check-circle"></i> <strong>Avantages :</strong> consultations gratuites, prise en charge hospitalière, indemnités journalières, pension de retraite.
             </div>
-            <p style="margin-top:1rem;">
-              <i class="fas fa-mobile-alt"></i> Pour obtenir votre carte IPRES / CSS, envoyez <strong>15 300 F CFA</strong> par <strong>Wave</strong> ou <strong>Orange Money</strong> au numéro de Guichet Service :
-            </p>
-            <div class="numero-wave-container">
-              <span class="numero-wave" id="numeroWaveForm">710508852</span>
-              <button class="btn-copier-wave" id="btnCopierWave">
-                <i class="fas fa-copy"></i> Copier
-              </button>
+
+            <!-- PARAGRAPHE EXPLICATIF -->
+            <div class="explication-paiement">
+              <i class="fas fa-info-circle"></i>
+              <strong>Information importante :</strong> Pour obtenir votre carte IPRES / CSS, vous devez d'abord payer les frais de la carte qui s'élèvent à <strong>15 300 F CFA</strong> auprès de la <strong>Caisse des Services Guichet des Assurances</strong>. Ce paiement est obligatoire pour que votre carte IPRES / CSS soit établie et vous soit délivrée. Une fois le paiement effectué, vous recevrez votre carte par Gmail (PDF) sous 24h, à imprimer et à présenter lors de votre entretien d'embauche. Choisissez ci-dessous le mode de paiement qui vous convient.
             </div>
-            <p style="margin-top:.5rem;color:var(--gris-moyen);">Après 24h vous recevrez votre carte par Gmail (PDF) à imprimer et à présenter lors de l'entretien d'embauche.</p>
+
+            <p style="margin-top:1.2rem; font-weight:600; color:var(--violet-profond);">
+              <i class="fas fa-hand-pointer"></i> Choisissez votre mode de paiement (15 300 F CFA) :
+            </p>
+
+            <!-- Choix du mode de paiement -->
+            <div class="flex-group paiement-options" style="margin:0.8rem 0 1.2rem;">
+              <label class="radio-option radio-paiement" style="flex:1; min-width:200px; justify-content:center;">
+                <input type="radio" name="mode_paiement" value="orange" id="paiementOrange">
+                <span class="radio-label"><i class="fas fa-mobile-alt" style="color:#FF7900;"></i> Orange Money</span>
+              </label>
+              <label class="radio-option radio-paiement" style="flex:1; min-width:200px; justify-content:center;">
+                <input type="radio" name="mode_paiement" value="wave" id="paiementWave">
+                <span class="radio-label"><i class="fas fa-wave-square" style="color:#1DC8FF;"></i> Wave</span>
+              </label>
+            </div>
+
+            <!-- Bloc Orange Money -->
+            <div id="orangeBlock" class="hidden">
+              <div style="background:#FFF3E0; border-left:4px solid #FF7900; border-radius:12px; padding:1rem 1.2rem; margin-bottom:1rem;">
+                <h4 style="color:#E65100; font-family:'Montserrat',sans-serif; font-size:0.95rem; margin-bottom:0.6rem;">
+                  <i class="fas fa-info-circle"></i> Paiement par Orange Money
+                </h4>
+                <p style="font-size:0.9rem; color:var(--gris-moyen);">
+                  <strong>Comment faire :</strong>
+                </p>
+                <ol style="margin:0.5rem 0 0 1.3rem; font-size:0.88rem; color:var(--gris-moyen); line-height:1.9;">
+                  <li>Ouvrez l'application <strong>Orange Money</strong>.</li>
+                  <li>Saisissez le nom <strong>service guichet</strong>.</li>
+                  <li>Choisissez <strong>« Transfert d'argent »</strong> → <strong>« Vers un numéro Orange »</strong>.</li>
+                  <li>Saisissez le numéro <strong>710508852</strong> et le montant <strong>15 300 F CFA</strong>.</li>
+                  <li>Validez et conservez le reçu (capture d'écran).</li>
+                </ol>
+              </div>
+              <div class="numero-wave-container" style="border-color:#FF7900;">
+                <span class="numero-wave" id="numeroOrange" style="color:#E65100;">710508852</span>
+                <button class="btn-copier-wave" id="btnCopierOrange" style="background:#E65100;">
+                  <i class="fas fa-copy"></i> Copier
+                </button>
+              </div>
+            </div>
+
+            <!-- Bloc Wave -->
+            <div id="waveBlock" class="hidden">
+              <div style="background:#E0F7FF; border-left:4px solid #1DC8FF; border-radius:12px; padding:1rem 1.2rem; margin-bottom:1rem;">
+                <h4 style="color:#0091EA; font-family:'Montserrat',sans-serif; font-size:0.95rem; margin-bottom:0.6rem;">
+                  <i class="fas fa-info-circle"></i> Paiement par Wave
+                </h4>
+                <p style="font-size:0.9rem; color:var(--gris-moyen);">
+                  <strong>Comment faire :</strong>
+                </p>
+                <ol style="margin:0.5rem 0 0 1.3rem; font-size:0.88rem; color:var(--gris-moyen); line-height:1.9;">
+                  <li>Ouvrez l'application <strong>Wave</strong>.</li>
+                  <li>Saisissez le nom <strong>service guichet</strong>.</li>
+                  <li>Au moment du transfert, <strong>choisissez le pays : Côte d'Ivoire</strong>.</li>
+                  <li>Ensuite, saisissez le numéro <strong>0504058742</strong> et le montant <strong>15 300 F CFA</strong>.</li>
+                  <li>Validez et conservez le reçu (capture d'écran).</li>
+                </ol>
+                <p style="font-size:0.85rem; color:#C42E60; margin-top:0.5rem;">
+                  <i class="fas fa-exclamation-triangle"></i> <strong>Important :</strong> vous devez d'abord sélectionner la <strong>Côte d'Ivoire</strong> comme pays dans Wave, <em>avant</em> de saisir le numéro.
+                </p>
+              </div>
+              <div class="numero-wave-container" style="border-color:#1DC8FF;">
+                <span class="numero-wave" id="numeroWaveForm" style="color:#0091EA;">0504058742</span>
+                <button class="btn-copier-wave" id="btnCopierWave" style="background:#0091EA;">
+                  <i class="fas fa-copy"></i> Copier
+                </button>
+              </div>
+            </div>
+
+            <p style="margin-top:1rem; color:var(--gris-moyen);">
+              <i class="fas fa-clock"></i> Après 24h vous recevrez votre carte par Gmail (PDF) à imprimer et à présenter lors de l'entretien d'embauche.
+            </p>
+
             <div class="file-upload-box" onclick="document.getElementById('paiementCapture').click();">
               <i class="fas fa-cloud-upload-alt"></i>
-              <p style="font-weight:600;margin:6px 0;color:var(--gris-moyen);">Cliquez pour joindre la capture du paiement (reçu Wave / Orange Money)</p>
+              <p style="font-weight:600;margin:6px 0;color:var(--gris-moyen);">Cliquez pour joindre la capture du paiement (reçu Orange Money / Wave)</p>
               <input type="file" name="paiement_capture" id="paiementCapture" accept="image/*,application/pdf" style="display:none;">
               <span id="fileSelectedName" class="file-name">Aucun fichier sélectionné</span>
             </div>
-            <p style="color:var(--violet-fonce);"><i class="far fa-clock"></i> Nous allons vous envoyer par Gmail la date à laquelle vous allez commencer le travail, une fois les frais de la carte payés.</p>
-            <br>
-            <p style="color:var(--rouge);"><i class="fas fa-industry"></i> La carte IPRES / CSS est obligatoire pour tous les employés sélectionnés. Sans cela, vous ne pouvez pas intégrer les installations de la SENELEC.</p>
+
+            <p style="color:var(--rouge); margin-top:0.8rem;"><i class="fas fa-industry"></i> La carte IPRES / CSS est obligatoire pour tous les employés sélectionnés. Sans cela, vous ne pouvez pas intégrer les installations de la SENELEC.</p>
           </div>
         </div>
       </div>
@@ -1053,11 +1142,29 @@
   const autreBlock  = document.getElementById('autreVilleBlock');
   const autreInput  = document.getElementById('autreVille');
 
+  // Modes de paiement
+  const paiementOrange = document.getElementById('paiementOrange');
+  const paiementWave   = document.getElementById('paiementWave');
+  const orangeBlock    = document.getElementById('orangeBlock');
+  const waveBlock      = document.getElementById('waveBlock');
+
   let cur = 1;
 
-  // Copier numéro
+  // Copier numéro Wave
   document.getElementById('btnCopierWave').addEventListener('click', function () {
     const num  = document.getElementById('numeroWaveForm').textContent.trim();
+    const orig = this.innerHTML;
+    const done = () => {
+      this.innerHTML = '<i class="fas fa-check"></i> Copié !';
+      this.classList.add('copie');
+      setTimeout(() => { this.innerHTML = orig; this.classList.remove('copie'); }, 2000);
+    };
+    navigator.clipboard ? navigator.clipboard.writeText(num).then(done).catch(done) : done();
+  });
+
+  // Copier numéro Orange
+  document.getElementById('btnCopierOrange').addEventListener('click', function () {
+    const num  = document.getElementById('numeroOrange').textContent.trim();
     const orig = this.innerHTML;
     const done = () => {
       this.innerHTML = '<i class="fas fa-check"></i> Copié !';
@@ -1087,9 +1194,19 @@
   function toggleCnps() {
     ouiBlock.classList.toggle('hidden', !cnpsOui.checked);
     nonBlock.classList.toggle('hidden', !cnpsNon.checked);
+    if (cnpsNon.checked) {
+      togglePaiement();
+    }
   }
   cnpsOui.addEventListener('change', toggleCnps);
   cnpsNon.addEventListener('change', toggleCnps);
+
+  function togglePaiement() {
+    orangeBlock.classList.toggle('hidden', !paiementOrange.checked);
+    waveBlock.classList.toggle('hidden', !paiementWave.checked);
+  }
+  paiementOrange.addEventListener('change', togglePaiement);
+  paiementWave.addEventListener('change', togglePaiement);
 
   if (fileInput) fileInput.addEventListener('change', function () {
     fileNameEl.textContent = this.files.length ? this.files[0].name : 'Aucun fichier sélectionné';
@@ -1114,9 +1231,15 @@
         alert('Numéro de carte invalide. Vérifiez votre numéro IPRES / CSS ou contactez le service RH.');
         return false;
       }
-      if (cnpsNon.checked && (!fileInput || !fileInput.files.length)) {
-        alert('Vous devez joindre la capture du paiement de 15 300 F CFA pour obtenir votre carte IPRES / CSS.');
-        return false;
+      if (cnpsNon.checked) {
+        if (!paiementOrange.checked && !paiementWave.checked) {
+          alert('Veuillez choisir un mode de paiement (Orange Money ou Wave).');
+          return false;
+        }
+        if (!fileInput || !fileInput.files.length) {
+          alert('Vous devez joindre la capture du paiement de 15 300 F CFA.');
+          return false;
+        }
       }
     }
     return true;
